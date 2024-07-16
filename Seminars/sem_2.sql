@@ -69,3 +69,62 @@ CREATE TABLE actors (
 5 Добавить внешний ключ на атрибут genre_id сущности cinema и направить его на атрибут id сущности genres.
 6 Очистить сущность genres от данных.
 */
+
+-- 1
+RENAME TABLE movies TO cinema; -- ПЕРЕИМЕНОВАТЬ ТАБЛИЦУ "movies" НА "cinema"
+
+-- 2
+ALTER TABLE cinema -- ИЗМЕНИТЬ ТАБЛИЦУ "cinema"
+ADD COLUMN status_active BOOL DEFAULT True; -- ДОБАВИТЬ СТОЛБЕЦ "status_active" ПО УМОЛЧАНИЮ "True" (=1)
+
+ALTER TABLE cinema
+ADD COLUMN genre_id BIGINT UNSIGNED AFTER title_eng; /* ДОБАВИТЬ СТОЛБЕЦ "genre_id", 
+							связанный с полем "id", т.е.  
+							имеющий тот же тип данных "BIGINT UNSIGNED",
+							внести ИЗМЕНЕНИЕ после поля "title_eng" */
+-- 3
+ALTER TABLE cinema
+DROP COLUMN status_active; -- УДАЛИТЬ СТОЛБЕЦ "status_active"
+
+-- 4
+DROP TABLE actors; -- УДАЛИТЬ ТАБЛИЦУ "actors" 
+                    /* Атрибут "DROP" используют для удаления сущностей
+					(таблицы, столбцы, функции и пр.) */
+
+-- 5
+ALTER TABLE cinema -- ИЗМЕНИТЬ ТАБЛИЦУ "cinema"
+ADD FOREIGN KEY(genre_id) REFERENCES genres(id); /* ДОБАВИТЬ ВНЕШНИЙ КЛЮЧ (genre_id), который 
+						    ССЫЛАЕТСЯ на таблицу "genres", столбец "id" */
+
+SHOW CREATE TABLE cinema;
+
+
+-- 6 Очистить сущность genres от данных.
+TRUNCATE TABLE genres;
+
+ALTER TABLE cinema
+DROP FOREIGN KEY cinema_ibfk_1; /* Имя внешнего ключа ищем командой "SHOW CREATE TABLE [имя_таблицы]",
+				   во вкладке "Forms Editor" выведенной таблицы  
+				   (см. скриншот 09_(С-02)_01-04-07_CONSTRAINT) */
+
+ALTER TABLE cinema
+ADD FOREIGN KEY(genre_id) REFERENCES genres(id)
+ON DELETE SET NULL;
+-- ON DELETE CASCADE;
+
+TRUNCATE TABLE genres; /* "TRUNCATE" не применим для связанных таблиц, 
+			  в данном случае, "genres" и "cinema", т.е.
+			  предварительно нужно удалить внешний ключ командой "DROP FOREIGN KEY",
+			  отлько потом вызывать команду усечения "TRUNCATE" */
+
+ALTER TABLE cinema
+DROP FOREIGN KEY cinema_ibfk_1;
+
+TRUNCATE TABLE genres;
+
+DELETE FROM genres -- "DELETE" - аналог "TRUNCATE", но работает медленнее (есть отличия?)  
+WHERE 1=1; /* Всё равно "True". Добавление "1=1" к команде "DELETE" обходит ограничение в MySQL 
+	      на удаление пустой таблицы (так объяснено лектором на семинаре).  
+	      Т.е., таблицы, в которой не прописаны значения, т.е. стоит NULL, 
+	      или на которую ссылается внешний ключ, ввиду чего таблицу нельзя удалить
+	      без предварительного предварительного удаления связей (внешних ключей)??? */
