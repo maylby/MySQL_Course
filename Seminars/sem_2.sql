@@ -46,3 +46,16 @@ VALUES
 
 SELECT * FROM movies;
 
+
+
+CREATE TABLE genres (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE actors (
+	id SERIAL PRIMARY KEY,
+	firstname VARCHAR(100) NOT NULL,
+	lastname VARCHAR(100)
+);
+
