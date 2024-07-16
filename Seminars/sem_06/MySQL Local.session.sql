@@ -51,3 +51,37 @@ f3 = f1 + f2 -- 1 -- 2 -- 3
 f1 = f2 -- 1 -- 1 -- 2
 f2 = f3 -- 1 -- 2 -- 3
 */
+
+DELIMITER $$ -- //
+CREATE FUNCTION fib(num INT) -- функция принимает на вход целое число
+RETURNS VARCHAR(100)
+DETERMINISTIC -- указание, что фукция возвращает один и тот же результат
+	      	  -- "NOT DETERMINISTIC" - возврат разных значений
+BEGIN
+    DECLARE f1 INT DEFAULT 0;
+    DECLARE f2 INT DEFAULT 1;
+    DECLARE f3 INT DEFAULT 0;
+    DECLARE res VARCHAR(100) DEFAULT '0 1';
+    
+    IF num = 1 THEN
+	RETURN f1; -- ::varchar
+	ELSEIF num = 2 THEN
+	    RETURN CONCAT(f1, ' ', f2);
+	    ELSE
+		WHILE num > 2 DO
+		   SET f3 = f1 + f2;
+            	   SET f1 = f2;
+                   SET f2 = f3;
+                   SET num = num - 1;
+                SET res = CONCAT(res, ' ', f3);
+	END WHILE;
+    END IF;
+    RETURN res;
+END $$ -- //
+DELIMITER ;
+
+SELECT fib(0);
+
+-- SELECT CONCAT(0, ' ', 1, '     ', 'sdfv'); 
+-- "CONCAT" - оператор сложения
+-- DROP function fib; -- команда на удаление функции
