@@ -244,3 +244,55 @@ SELECT * FROM employee_salary;
 4.* Выведите только те группы, в которых количество строк меньше или равно двум. 
   Для решения используйте оператор “IN”
 */
+
+SELECT
+	age
+	,SUM(salary) as summ
+	,MAX(salary) as maxx
+	,MIN(salary) as minn
+FROM employee_salary
+GROUP BY age
+HAVING age > 24; -- фильтрует группы
+
+SELECT
+	age
+	,SUM(salary) as summ
+	,MAX(salary) as maxx
+	,MIN(salary) as minn
+FROM employee_salary
+WHERE age > 24 
+GROUP BY age;
+
+-- 1
+SELECT
+	age
+	,SUM(salary) as summ
+	,MAX(salary) as maxx
+	,MIN(salary) as minn
+FROM employee_salary
+GROUP BY age
+HAVING summ > 1000;
+
+-- 2
+SELECT
+	age,
+	COUNT(*) AS cnt
+FROM employee_salary
+GROUP BY age
+HAVING cnt <= 2;
+
+-- 3
+SELECT
+	age,
+	COUNT(*) AS cnt
+FROM employee_salary
+GROUP BY age
+HAVING cnt BETWEEN 1 AND 2;
+
+-- 4
+SELECT
+	age,
+	COUNT(*) AS cnt
+FROM employee_salary
+GROUP BY age
+HAVING cnt IN (1, 2);
