@@ -223,3 +223,13 @@ VALUES
 3. 	Сгруппируйте поля по возрасту (будет 3 группы - 23 года, 24 года и 25 лет). 
 	Найдите минимальную заработную плату внутри группы
 */
+
+SELECT
+	age
+	,SUM(salary) as summ
+	,MAX(salary) as maxx
+	,MIN(salary) as minn
+FROM employee_salary
+GROUP BY age;
+
+SELECT * FROM employee_salary;
