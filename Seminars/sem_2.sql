@@ -183,3 +183,13 @@ IF( condition, [value_if_true], [value_if_false] )
 2. В зависимости от общего количество баллов, укажите статус ученик в табеле успеваемости: 
 если суммарное количество баллов больше 450, то студент закончил на “Отлично”; иначе - “Хорошо”
 */
+
+-- 1
+SELECT IF(100 > 200, 'yes', IF(50 > 5, 'y', 'n'));
+
+-- 2
+SELECT 
+    total_marks,
+    grade,
+    IF(total_marks > 450, 'Отлично', IF(total_marks > 300, 'u1', 'u2')) AS class
+FROM studentMarks;
