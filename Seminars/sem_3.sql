@@ -204,3 +204,13 @@ name VARCHAR(50) NOT NULL,
 age INT,
 salary INT
 );
+
+-- Наполнение данными
+INSERT INTO employee_salary (name, age, salary)
+VALUES
+('Дима', 23, 100),
+('Петя', 23, 200),
+('Вася', 23, 300),
+('Коля', 24, 1000),
+('Иван', 24, 2000),
+('Паша', 25, 700);
