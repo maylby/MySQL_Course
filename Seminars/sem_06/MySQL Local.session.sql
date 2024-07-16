@@ -11,8 +11,11 @@ https://gb.ru/lessons/441880
 с 18:00 до 00:00 — "Добрый вечер", с 00:00 до 6:00 — "Доброй ночи".
 */
 
+
 DELIMITER $$ -- //
-CREATE PROCEDURE hello()
+CREATE PROCEDURE hello() /* "процедура" ничего не возвращает, а только выводит результат
+			    			"функция" циклично возвращает результат, для получения следующего,
+			    			пока не будет выполнено условие завершения функции */ 
 BEGIN
 	CASE
 		WHEN CURTIME() BETWEEN '06:00:00' AND '11:59:59'
@@ -24,7 +27,7 @@ BEGIN
 		ELSE SELECT 'Доброй ночи';
     END CASE;
 END $$ -- //
-DELIMITER ;
+DELIMITER ; -- после "DELIMITER" ставим пробел, затем ";"
 
-CALL hello();
+CALL hello(); -- вызов процедуры
 
