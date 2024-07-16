@@ -59,3 +59,11 @@ CREATE TABLE actors (
 	lastname VARCHAR(100)
 );
 
+/*
+1 Переименовать сущность movies в cinema.
+2 Добавить сущности cinema новый атрибут status_active (тип BOOL) и атрибут genre_id после атрибута title_eng.
+3 Удалить атрибут status_active сущности cinema. 
+4 Удалить сущность actors из базы данных
+5 Добавить внешний ключ на атрибут genre_id сущности cinema и направить его на атрибут id сущности genres.
+6 Очистить сущность genres от данных.
+*/
