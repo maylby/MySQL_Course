@@ -21,11 +21,11 @@ CREATE TABLE movies
 (
 	-- id INT PRIMARY KEY AUTO_INCREMENT,
     id SERIAL PRIMARY KEY, -- SERIAL = BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE
-					                    |	    |	    |	        |           |_-- Уникальный (???)
-					                    |	    |	    |	        |_-- Авто присвоение id
-					                    |	    |	    |_-- Не нулевой
-					                    |	    |_-- Брать, только положительную часть "BIGINT"
-					                    |_-- Расширенный "integer" (64 бита, от -9 до 9 млрд.)
+					|	|	|	|		|__Уникальный (???)
+					|	|	|	|__Авто присвоение id
+					|	|	|__Не нулевой
+					|	|__Брать, только положительную часть "BIGINT"
+					|__Расширенный "integer" (64 бита, от -9 до 9 млрд.)
     title VARCHAR(60) NOT NULL,
     title_eng VARCHAR(60),
     year_movie YEAR NOT NULL,
