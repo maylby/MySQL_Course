@@ -130,3 +130,15 @@ SELECT *
 FROM staff
 ORDER BY id desc
 LIMIT 2, 3;
+
+
+-- Агрегатные функции.
+
+DROP TABLE IF EXISTS employee_tbl;
+CREATE TABLE employee_tbl (
+    id_emp INT AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    work_date DATE,
+    daily_typing_pages INT
+);
