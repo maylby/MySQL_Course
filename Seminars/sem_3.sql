@@ -195,3 +195,12 @@ FROM employee_tbl;
 
 SELECT *
 FROM employee_tbl;
+
+
+
+CREATE TABLE employee_salary (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+age INT,
+salary INT
+);
