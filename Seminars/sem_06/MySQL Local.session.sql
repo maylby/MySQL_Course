@@ -85,3 +85,23 @@ SELECT fib(0);
 -- SELECT CONCAT(0, ' ', 1, '     ', 'sdfv'); 
 -- "CONCAT" - оператор сложения
 -- DROP function fib; -- команда на удаление функции
+
+
+
+-- Транзакция
+
+DROP TABLE IF EXISTS bankaccounts;
+CREATE TABLE bankaccounts(
+	accountno varchar(20) PRIMARY KEY NOT NULL,
+	funds decimal(8,2));
+
+INSERT INTO bankaccounts VALUES("ACC1", 1000);
+INSERT INTO bankaccounts VALUES("ACC2", 1000);
+
+-- Изменим баланс на аккаунтах
+START TRANSACTION; 
+UPDATE bankaccounts SET funds=funds-100 WHERE accountno='ACC1'; 
+UPDATE bankaccounts SET funds=funds+100 WHERE accountno='ACC2'; 
+ROLLBACK; -- возврат в исходное состояние
+
+SELECT * FROM bankaccounts;
