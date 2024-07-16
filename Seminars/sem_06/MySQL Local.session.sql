@@ -105,3 +105,31 @@ UPDATE bankaccounts SET funds=funds+100 WHERE accountno='ACC2';
 ROLLBACK; -- возврат в исходное состояние
 
 SELECT * FROM bankaccounts;
+
+
+
+DROP PROCEDURE loop_proc;
+
+DELIMITER $$ -- //
+CREATE PROCEDURE loop_proc(x INT)
+BEGIN
+	DECLARE res VARCHAR(200) DEFAULT CAST(x AS char(200));
+    
+    REPEAT
+		SET x = x - 1;
+        SET res = CONCAT(res, ', ', x);
+		UNTIL x <= 0
+	END REPEAT;
+    
+    SELECT res;
+END $$ -- //
+DELIMITER ;
+
+CALL loop_proc(20);
+
+SELECT CAST(45 AS char);
+
+SELECT CAST(1.55 AS nchar(50));
+
+-- Реализуйте процедуру, внутри которой, с помощью цикла, выведятся числа от N до 1:
+-- N = 5=>5,4,3,2,1,
