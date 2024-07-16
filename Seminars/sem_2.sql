@@ -152,3 +152,9 @@ VALUES
 
 SELECT * FROM studentMarks; -- Просмотр данных созданной таблицы
 
+/*
+Задача 3. В зависимости от поля “grade”, установите еще один столбец с именем class в 
+зависимости от значений: A++ – DISTINCTION,A+ – FIRST CLASS, A – SECOND CLASS, B+ – SECOND CLASS,
+ C+ – THIRD CLASS, ALL OTHERS – FAIL 
+*/
+
