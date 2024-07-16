@@ -158,3 +158,18 @@ SELECT * FROM studentMarks; -- Просмотр данных созданной 
  C+ – THIRD CLASS, ALL OTHERS – FAIL 
 */
 
+-- Добавление условий в таблицу
+SELECT 
+    total_marks,
+    grade AS qwerth, -- изменение названия таблицы (столбца) при выводе
+    CASE 
+	WHEN grade = 'A++' THEN 'DISTINCTION'
+        WHEN grade = 'A+' THEN 'FIRST CLASS'
+        WHEN grade = 'A' THEN 'SECOND CLASS'
+        WHEN grade = 'B+' THEN 'SECOND CLASS'
+        WHEN grade = 'C+' THEN 'THIRD CLASS'
+        ELSE 'FAIL'
+    END AS class /* "AS" (Aliass - псевдоним) изменяет название таблицы (столбца) при выводе,
+		    заменяя словом "class" все данные, записанные в "CASE", иначе бы они были 
+		    целиком записаны в ячейку с названием столбца, сделав таблицу не читаемой */		
+FROM studentMarks;
