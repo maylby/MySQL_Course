@@ -44,3 +44,51 @@ SELECT * FROM staff;
    отсортированные по полю " firstname " в алфавитном порядке по убыванию
 4. Выполните сортировку по полям " firstname " и "age" по убыванию
 */
+
+-- 1
+SELECT * FROM staff
+ORDER BY age; -- сортировка в порядке возрастания задана по умолчанию
+
+-- 2
+SELECT * FROM staff
+ORDER BY firstname;
+
+-- 3
+SELECT 
+	# Выводить, только перечисленные поля (для читабельности - в столбик)  
+	firstname
+	,lastname
+	,age 
+FROM staff
+ORDER BY firstname DESC;
+
+SELECT 
+	firstname
+	,lastname
+	,age 
+FROM staff
+WHERE firstname = "Юрий" -- выводить те, где имя Юрий
+	AND age > 24 -- и возраст больше 24
+ORDER BY firstname DESC;
+
+SELECT 
+	firstname
+	,lastname
+	,age 
+FROM staff
+WHERE 1=1 /* заглушка "1=1" нужна для исключения ошибок в случае, если
+			 ниже идущие условия будут выключены (закомментированы) */
+	-- AND firstname = "Юрий" 
+	AND age >= 24 
+ORDER BY firstname DESC;
+
+-- 4
+SELECT 
+	firstname
+	,lastname
+	,age 
+FROM staff
+ORDER BY firstname, age DESC;
+
+SELECT * FROM staff
+ORDER BY firstname DESC, age DESC;
