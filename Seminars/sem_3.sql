@@ -100,3 +100,33 @@ ORDER BY firstname DESC, age DESC;
 3. Отсортируйте записи по возрастанию значений поля "id". Пропустите первые 4 строки данной выборки и извлеките следующие 3
 4. Отсортируйте записи по убыванию поля "id". Пропустите две строки данной выборки и извлеките следующие за ними 3 строки
 */
+
+-- 1
+SELECT DISTINCT firstname, age -- Выводить уникальные строки по имени и возрасту
+FROM staff; -- из таблицы "staff"
+
+SELECT firstname, MAX(age)
+FROM staff
+GROUP BY firstname;
+
+SELECT firstname, age
+FROM staff
+GROUP BY firstname, age;
+
+-- 2
+SELECT *
+FROM staff
+ORDER BY id
+LIMIT 2;
+
+-- 3
+SELECT *
+FROM staff
+ORDER BY id 
+LIMIT 4, 2;
+
+-- 4
+SELECT *
+FROM staff
+ORDER BY id desc
+LIMIT 2, 3;
