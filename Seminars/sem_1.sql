@@ -15,3 +15,44 @@ comment
 comment
 comment
 */
+
+
+/*
+1. Получить список с информацией обо всех студентах
+2. Получить список всех студентов с именем “Антон”(или любого существующего студента)
+3. Вывести имя и название курса из таблички "Студент"
+4*. Выбрать студентов, фамилии которых начинаются с буквы «А».
+*/
+
+USE lesson_1;
+
+-- 1
+SELECT * FROM lesson_1.student;
+
+-- 2
+SELECT * FROM student
+WHERE LOWER(name) = 'Anton'; -- "LOWER" сводит все знаки к нижнему регистру,
+			                 -- "UPPER" - к верхнему регистру.
+                             -- Что позволяет писать в любом регистре.
+
+-- 3
+SELECT name, course FROM student;
+
+-- 4
+/*
+LIKE - оператор, позаоляющий пользоваться регулярными выражениями
+Galaxy S10, Galaxy S10+, Galaxy S8, Galaxy A8
+% - любое количество символов или ничего -> tel LIKE 'Galaxy S%' => Galaxy S10, Galaxy S10+, Galaxy S8
+_ - строго один символ -> tel LIKE 'Galaxy S_' => Galaxy S8 (строго 1 символ после 'S')
+*/
+
+SELECT * FROM student
+WHERE name LIKE 'M%';
+
+SELECT * FROM student
+WHERE name LIKE 'M_';
+
+SELECT * FROM student
+WHERE name LIKE 'M_r%'; 
+
+-- Запросы "M_" и "M_r%" выдают один и тот же результат
