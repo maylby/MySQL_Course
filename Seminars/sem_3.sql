@@ -161,3 +161,37 @@ VALUES
 4. Выведите количество имен, которые являются уникальными
 5. Найдите среднее арифметическое по количеству ежедневных страниц для набора (daily_typing_pages)
 */
+
+-- 1
+SELECT SUM(daily_typing_pages) AS summ 
+FROM employee_tbl;
+
+-- 2
+SELECT name, SUM(daily_typing_pages) AS summ
+FROM employee_tbl
+GROUP BY name;
+
+SELECT name, SUM(daily_typing_pages) AS summ, COUNT(daily_typing_pages) AS cnt
+FROM employee_tbl
+GROUP BY name;
+
+-- 3
+SELECT COUNT(*)
+FROM employee_tbl;
+
+-- 4
+SELECT COUNT(DISTINCT name) AS cnt_name -- вывод числа уникальных имён
+FROM employee_tbl;
+
+-- 5
+SELECT AVG(daily_typing_pages) AS avg -- среднее арифметическое общего числа страниц
+FROM employee_tbl;
+
+SELECT ROUND(AVG(daily_typing_pages)) AS avg -- округление результата до целого числа
+FROM employee_tbl;
+
+SELECT ROUND(AVG(daily_typing_pages), 2) AS avg -- округление до 2-го знака после запятой
+FROM employee_tbl;
+
+SELECT *
+FROM employee_tbl;
