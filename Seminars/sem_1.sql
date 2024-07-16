@@ -63,9 +63,9 @@ WHERE name LIKE 'M_r%';
 ----------------------------------------------------
 idstudent	name	email	phone	course	stip
 ----------------------------------------------------
-1 	    Marat       vfdfd   6543 	IT 	    6000
-3 	    Martin      ghhg    7853 	IT 	    5000
-5 	    Mark        fff     NULL 	IT 	    6001
+1 	    Marat       vfdfd   6543 	IT      6000
+3 	    Martin      ghhg    7853 	IT      5000
+5 	    Mark        fff     NULL 	IT      6001
 6 	    Maria       ddd     7888 	Phis    5999
 ----------------------------------------------------
 */
