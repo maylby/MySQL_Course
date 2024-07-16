@@ -69,3 +69,27 @@ idstudent	name	email	phone	course	stip
 6 		    Maria	ddd	    7888 	Phis 	5999
 ----------------------------------------------------
 */
+
+
+
+
+/*
+1. Выбрать всех студентов,у которых стипендия больше 6000
+2. Покажите всех студентов, которые принадлежат к курсу IT.
+3. Отобразите всех студентов, который НЕ принадлежат к курсу IT
+*/
+
+# 1
+SELECT * FROM student
+WHERE stip <= 6000;
+
+# 2
+SELECT * FROM student
+WHERE course = 'IT';
+
+# 3
+SELECT * FROM student
+WHERE course != 'IT';
+
+SELECT * FROM student
+WHERE NOT course = 'IT';
