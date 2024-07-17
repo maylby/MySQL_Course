@@ -72,6 +72,22 @@ FROM count_status
 WHERE status = 'active';
 
 
+-- Рекурсивные СТЕ
+/*
+CTE является рекурсивным, если его подзапрос ссылается на его собственное имя. Если
+планируется использовать рекурсивный CTE то в запрос должен быть включен параметр
+RECURSIVE.
+*/
+
+WITH RECURSIVE <cte_name> (<colums>) AS
+(
+  <base_case_query> -- Выполняется 1 раз при запуске рекурсии
+  UNION ALL
+  <recursive_step_query> -- invoke the CTE here!
+)
+<main_query>
+
+
 WITH RECURSIVE sequence (n) AS
 (
   SELECT 0
