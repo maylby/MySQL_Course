@@ -223,3 +223,19 @@ SELECT *
 FROM members AS m
 RIGHT JOIN committees AS c
 	ON m.name = c.name;
+
+
+
+-- Оператор IN 
+
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);
+
+/*
+Проверьте, присутствует ли буква “А” в последовательности 'A', 'B', 'C', 'D'
+Проверьте, присутствует ли буква “Z” в последовательности 'A', 'B', 'C', 'D'
+Получить столбцы из таблицы “clients” , в которых первое имя является набором значений.
+Выберите все логины из таблицы “users”, кроме “Mikle”.
+*/
+
