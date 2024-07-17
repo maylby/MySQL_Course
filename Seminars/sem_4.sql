@@ -76,3 +76,23 @@ JOIN committees AS c
 2.* Выведите участников, которые не являются членами комитета
 */
 
+-- LEFT JOIN
+/*
+SELECT * FROM tableA 
+LEFT OUTER JOIN tableB 
+ON tableA.name = tableB.name
+*/
+
+-- 1 
+SELECT *
+FROM members AS m
+LEFT JOIN committees AS c
+	ON m.name = c.name;    
+
+-- 2 (только те из таблицы "members", кого нет в "committees" - анти "JOIN")
+SELECT *
+FROM members AS m
+LEFT JOIN committees AS c
+	ON m.name = c.name
+WHERE
+	c.name IS NULL;
