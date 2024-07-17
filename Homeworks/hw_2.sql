@@ -62,3 +62,16 @@ SELECT * FROM mobile_phones;
 Используя CRUD-операцию INSERT, наполните сущность manufacturer в соответствии с данными, 
 имеющимися в атрибуте manufacturer сущности mobile_phones.
 */
+
+
+CREATE TABLE manufacturer 
+(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(45)
+);
+
+INSERT INTO manufacturer (name)
+SELECT DISTINCT manufacturer
+FROM mobile_phones;
+
+SELECT * FROM manufacturer;
