@@ -239,3 +239,18 @@ WHERE column_name IN (value1, value2, ...);
 Выберите все логины из таблицы “users”, кроме “Mikle”.
 */
 
+-- 1
+SELECT 'A' IN ('A', 'B', 'C', 'D') AS symbol;
+
+-- 2
+SELECT 'V' IN ('A', 'B', 'C', 'D') AS symbol;
+
+-- 3
+SELECT login FROM clients
+-- WHERE login IN ('alex', 'Mikle', 'Leonid');
+WHERE login = 'alex' OR login = 'Mikle' OR login = 'Leonid';
+
+-- 4
+SELECT login FROM clients
+WHERE login NOT IN ('Mikle'); 
+
