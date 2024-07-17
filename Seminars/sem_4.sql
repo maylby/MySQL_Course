@@ -298,3 +298,10 @@ INSERT INTO Projects ( Title, ClientId, EmployeeId, StartDate, EndDate) VALUES
 ('Migrate web application and database to new server', 2, NULL, NOW(), DATE_ADD(NOW(), INTERVAL 5 DAY)),
 ('Android Application development', 4, 1004, NOW(), DATE_ADD(NOW(), INTERVAL 30 DAY));
 
+
+-- Задание на EXISTS
+/*
+1. Получите из таблицы "Сотрудники" только тех сотрудников, которые в данный момент работают над любым из активных проектов.
+2. Проверьте, существует ли сотрудник с идентификатором 1004 в таблице сотрудников или нет.
+*/
+
