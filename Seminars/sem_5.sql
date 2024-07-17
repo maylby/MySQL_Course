@@ -35,3 +35,28 @@ INSERT INTO users_profile values
 	Задайте псевдоним результирующему окну. 
     Пример:
 */
+
+SELECT * FROM users;
+SELECT * FROM users_profile;
+
+-- 1
+WITH cte_users AS
+(
+	SELECT * 
+    FROM users_profile
+)
+SELECT * FROM cte_users;
+
+-- 2
+WITH count_status AS
+(
+	SELECT 
+		status,
+        COUNT(*) as cnt
+	FROM users
+    GROUP BY status
+)
+SELECT * 
+FROM count_status
+WHERE status = 'active';
+
