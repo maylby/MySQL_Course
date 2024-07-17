@@ -8,6 +8,13 @@ https://gb.ru/lessons/441879
 /* (таблица, создваемая в рамках одного запроса, 
 после выполнения которого она удаляется) */
 
+WITH 
+<cte_name>(<colums>) AS
+(
+    <cte_query>
+)
+<main_query>
+
 
 DROP TABLE IF EXISTS users;
 
