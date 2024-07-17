@@ -84,6 +84,18 @@ TIMESTAMP -- хранит дату и время начиная с 1970 года
 */
 
 
+-- Установка первичного ключа на уровне таблицы:
+
+CREATE TABLE Customers
+(
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    Age INT,
+    FirstName VARCHAR(20),
+    LastName VARCHAR(20)
+);
+
+
+
 -- Бинарные
 
 /* Используются для хранения файлов, фото, документов, аудио и видеоконтента. 
