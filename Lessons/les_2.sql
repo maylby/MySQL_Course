@@ -299,3 +299,60 @@ CASE
 END AS Category
 FROM Products;
 
+
+-- Функция IF
+
+/*
+Функция IF, в зависимости от результата условного выражения, возвращает одно из двух значений. 
+Общая форма функции выглядит следующим образом:
+*/
+
+IF(условие, значение_1, значение_2)
+
+/*
+Если условие, передаваемое в качестве первого параметра, 
+верно, то возвращается первое значение, иначе возвращается второе. 
+*/
+
+-- Например:
+
+SELECT ProductName, Manufacturer,
+IF(ProductCount > 3, 'Много товара', 'Мало товара')
+FROM Products;
+
+
+
+-- Запросы изменения данных (insert, update, delete)
+
+INSERT -- вставка новых данных
+
+-- Данный оператор имеет 2 основные формы:
+
+	1. INSERT INTO таблица(перечень_полей)
+	   VALUES(перечень_значений) – вставка в таблицу новой строки
+	   значения полей которой формируются из перечисленных значений
+	2. INSERT INTO таблица(перечень_полей) SELECT
+	   перечень_значений FROM … – вставка в таблицу новых строк,
+	   значения которых формируются из значений строк возвращенных запросом.
+
+
+-- Заполним табличку Products без графического интерфейса:
+
+CREATE TABLE Products
+(
+	Id INT AUTO_INCREMENT PRIMARY KEY,
+	ProductName VARCHAR(30) NOT NULL,
+	Manufacturer VARCHAR(20) NOT NULL,
+	ProductCount INT DEFAULT 0,
+	Price DECIMAL
+);
+
+INSERT INTO Products (ProductName, Manufacturer, ProductCount, Price)
+
+VALUES
+('iPhone X', 'Apple', 3, 76000),
+('iPhone 8', 'Apple', 2, 51000),
+('Galaxy S9', 'Samsung', 2, 56000),
+('Galaxy S8', 'Samsung', 1, 41000),
+('P20 Pro', 'Huawei', 5, 36000);
+
