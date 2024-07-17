@@ -98,3 +98,32 @@ SELECT
 		ELSE 'little'
 	END AS state
 FROM mobile_phones;
+
+
+
+-- Задача 3
+/*
+Имеется таблица-справочник (сущность) производителей manufacturer.
+
+У сущности имеются следующие поля(атрибуты):
+	id – идентификатор;
+	name – название.
+
+Сущность manufacturer имеет следующие записи:
+id	name
+1	Apple
+2	Samsung
+3	Huawei
+
+Создайте для сущности mobile_phones внешний ключ manufacturer_id (идентификатор производителя), направленный на атрибут id сущности manufacturer. 
+Установите каскадное обновление - CASCADE, 
+а при удалении записи из сущности manufacturer – SET NULL.
+
+Используя CRUD-операцию UPDATE обновите данные 
+в атрибуте manufacturer_id сущности mobile_phones согласно значений, 
+имеющихся в атрибуте manufacturer.
+
+Удалите атрибут manufacturer из сущности mobile_phones.
+Выведите идентификатор, название и идентификатор производителя сущности mobile_phones.
+*/
+
