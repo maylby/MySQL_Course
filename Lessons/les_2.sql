@@ -18,3 +18,18 @@ CREATE DATABASE MySampleDB;
 show databases; -- вызывает список всех баз данных
 use MySampleDB; -- Подключение к базе
 
+
+-- Создание сущности в MySQL
+
+CREATE TABLE table_name
+(
+    column_name_1 column_type_1,
+    column_name_2 column_type_2,
+    ...,
+    column_name_N column_type_N
+);
+
+-- table_name - имя таблицы
+-- column_name - имя столбца
+-- column_type - тип данных столбца
+
