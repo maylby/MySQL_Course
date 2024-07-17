@@ -29,3 +29,9 @@ INSERT INTO users_profile values
 	('staff', 'Jakir Nayek' , 'Mirpur', 'zakir@test.com' ),
 	('manager', 'Mehr Afroz' , 'Eskaton', 'mehr@test.com' );
 
+/*
+1.	Используя СТЕ, выведите всех пользователей из таблицы users_profile
+2.	Используя СТЕ, подсчитайте количество активных пользователей . 
+	Задайте псевдоним результирующему окну. 
+    Пример:
+*/
