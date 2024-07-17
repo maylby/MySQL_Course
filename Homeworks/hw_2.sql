@@ -127,3 +127,18 @@ id	name
 Выведите идентификатор, название и идентификатор производителя сущности mobile_phones.
 */
 
+
+ALTER TABLE mobile_phones
+ADD COLUMN manufacturer_id BIGINT;
+
+ALTER TABLE mobile_phones
+ADD FOREIGN KEY(manufacturer_id) REFERENCES manufacturer(id)
+ON UPDATE CASCADE ON DELETE SET NULL;
+
+UPDATE mobile_phones
+SET manufacturer_id = (SELECT id FROM manufacturer WHERE mobile_phones.manufacturer = name);
+
+ALTER TABLE mobile_phones
+DROP COLUMN manufacturer;
+
+SELECT id, product_name, manufacturer_id FROM manufacturer;
