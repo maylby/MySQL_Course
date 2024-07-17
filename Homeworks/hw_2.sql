@@ -150,3 +150,26 @@ SELECT id, product_name, manufacturer_id FROM manufacturer;
 Необходимо вывести идентификатор и подробное описание статуса заказа.
 */
 
+CREATE TABLE orders
+(
+	id SERIAL PRIMARY KEY,
+	mobile_phones_id INT,
+    order_status VARCHAR(200)
+);
+
+INSERT INTO orders (mobile_phones_id, order_status)
+VALUES
+(1, 'OPEN'),
+(1, 'OPEN'),
+(1, 'CLOSED'),
+(4, 'OPEN'),
+(4, 'CANCELLED');
+
+SELECT
+    id,
+    CASE
+	WHEN order_status = 'OPEN' THEN 'Order is in open state'
+	WHEN order_status = 'CLOSED' THEN 'Order is closed'
+	WHEN order_status = 'CANCELLED' THEN 'Order is cancelled'
+    END AS detailed
+FROM orders;
