@@ -50,3 +50,22 @@ SELECT * FROM members;
 используйте INNER JOIN (пересечение 2 таблиц по имени);
 */
 
+-- 1
+SELECT *
+FROM members AS m
+JOIN committees AS c
+	ON m.name = c.name;
+    
+-- 2
+SELECT *
+FROM members AS m
+JOIN committees AS c
+	USING(name); -- Объединение одноимённых полей из двух таблиц
+
+SELECT
+	m.name -- поле "name" из таблицы "members"
+    ,c.committee_id -- поле "id" из таблицы "committees"
+FROM members AS m
+JOIN committees AS c
+	USING(name);
+
