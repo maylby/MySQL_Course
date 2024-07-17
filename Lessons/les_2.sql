@@ -224,3 +224,44 @@ WHERE Manufacturer = 'Samsung' OR Price > 50000
 SELECT * FROM Products
 WHERE NOT Manufacturer = 'Samsung';
 
+
+
+-- Приоритет операций
+/*
+В одном условии при необходимости мы можем объединять несколько логических операций. 
+Самой приоритетной операцией, которая выполняется в первую очередь, 
+является NOT, 
+менее приоритетная - AND и 
+наименее приоритетная - OR. 
+*/
+
+-- Например:
+
+SELECT * FROM Products
+WHERE Manufacturer ='Samsung' OR NOT Price > 30000 AND ProductCount > 2;
+
+
+-- С помощью скобок можно переопределить приоритет операций:
+
+SELECT * FROM Products
+WHERE Manufacturer ='Samsung' OR NOT (Price > 30000 AND ProductCount > 2);
+/*
+Находим товары, у которых либо производитель Samsung, 
+либо одновременно цена товара меньше или равна
+30000 и количество товаров меньше 3 (?? - 2)
+*/
+
+-- Порядок битов и байтов операций SQL-запроса
+-- упрощает процесс написания новых запросов и оптимизацию SQL-запроса.
+
+1. FROM, включая JOINs
+2. WHERE
+3. GROUP BY
+4. HAVING
+5. Функции WINDOW
+6. SELECT
+7. DISTINCT
+8. UNION
+9. ORDER BY
+10. LIMIT и OFFSET
+
