@@ -112,3 +112,20 @@ ON tableB.name = tableA.name
 1. Найти членов комитета, которых нет в members с помощью RIGHT JOIN
 2. Выполнить RIGHT JOIN между 2 таблицами по полю “Имя”
 */
+
+
+
+-- 1
+SELECT *
+FROM members AS m
+RIGHT JOIN committees AS c
+	ON m.name = c.name;      
+    
+ -- 2
+SELECT *
+FROM members AS m
+RIGHT JOIN committees AS c
+	ON m.name = c.name
+WHERE
+	m.name IS NULL;
+
