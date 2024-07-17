@@ -142,3 +142,11 @@ ALTER TABLE mobile_phones
 DROP COLUMN manufacturer;
 
 SELECT id, product_name, manufacturer_id FROM manufacturer;
+
+
+
+-- Задача 4
+/*
+Необходимо вывести идентификатор и подробное описание статуса заказа.
+*/
+
