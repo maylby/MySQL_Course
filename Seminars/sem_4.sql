@@ -305,3 +305,29 @@ INSERT INTO Projects ( Title, ClientId, EmployeeId, StartDate, EndDate) VALUES
 2. Проверьте, существует ли сотрудник с идентификатором 1004 в таблице сотрудников или нет.
 */
 
+-- 1
+SELECT * FROM Employee;
+SELECT * FROM Projects;
+
+-- 2
+SELECT * FROM Employee WHERE id = 1004; -- выдаёт строку таблицы
+SELECT EXISTS (SELECT * FROM Employee WHERE id = 1004) AS res; -- выдаёт 1(да) или 0(нет)
+
+-- 3
+SELECT * 
+FROM Employee 
+WHERE Id IN (SELECT EmployeeId FROM Projects);
+
+SELECT * 
+FROM Employee AS e
+WHERE EXISTS (SELECT * FROM Projects AS p WHERE p.EmployeeId = e.Id);
+
+SELECT *
+FROM Employee AS e
+JOIN Projects AS p 
+	ON p.EmployeeId = e.Id;
+    
+SELECT e.*
+FROM Employee AS e
+JOIN Projects AS p 
+	ON p.EmployeeId = e.Id;
