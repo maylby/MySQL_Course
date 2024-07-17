@@ -189,3 +189,38 @@ NOT -- операция логического отрицания.
 NOT выражение
 */
 
+
+-- БД для работы, заполненная данными:
+
+CREATE TABLE Products
+(
+	Id INT AUTO_INCREMENT PRIMARY KEY,
+	ProductName VARCHAR(30) NOT NULL,
+	Manufacturer VARCHAR(20) NOT NULL,
+	ProductCount INT DEFAULT 0,
+	Price DECIMAL
+);
+
+
+USE productsdb;
+
+SELECT * FROM Products; -- Символ звездочка - получить все столбцы.
+
+
+-- Выбрать все товары Samsung, цена которых больше 50000:
+
+SELECT * FROM Products
+WHERE Manufacturer = 'Samsung' AND Price > 50000
+
+
+-- Oператор на OR - все товары, либо произведённые Samsung, либо по цене больше 50000:
+
+SELECT * FROM Products
+WHERE Manufacturer = 'Samsung' OR Price > 50000
+
+
+-- Оператор NOT - выбор товаров, у которых производитель не Samsung:
+
+SELECT * FROM Products
+WHERE NOT Manufacturer = 'Samsung';
+
