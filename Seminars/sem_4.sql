@@ -96,3 +96,19 @@ LEFT JOIN committees AS c
 	ON m.name = c.name
 WHERE
 	c.name IS NULL;
+
+
+
+-- RIGHT JOIN
+-- Используется редко, т.к. снижается читабельность
+-- Обычно используют "LEFT JOIN", чтобы все данные находились в левой части таблицы
+
+SELECT * FROM tableA 
+RIGHT OUTER JOIN tableB 
+ON tableB.name = tableA.name
+
+/*
+Задание:
+1. Найти членов комитета, которых нет в members с помощью RIGHT JOIN
+2. Выполнить RIGHT JOIN между 2 таблицами по полю “Имя”
+*/
