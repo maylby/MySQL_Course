@@ -113,8 +113,6 @@ ON tableB.name = tableA.name
 2. Выполнить RIGHT JOIN между 2 таблицами по полю “Имя”
 */
 
-
-
 -- 1
 SELECT *
 FROM members AS m
