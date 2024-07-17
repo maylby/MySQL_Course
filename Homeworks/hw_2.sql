@@ -77,6 +77,7 @@ FROM mobile_phones;
 SELECT * FROM manufacturer;
 
 
+
 -- Задача 2
 /*
 Статусы количества мобильных телефонов 
@@ -86,3 +87,14 @@ SELECT * FROM manufacturer;
 	больше 300 – «lots».
 Необходимо вывести название, производителя и статус количества для мобильных телефонов
 */
+
+
+SELECT
+	name_product,
+	manufacturer,
+	CASE
+		WHEN name_product > 300 THEN 'lots'
+		WHEN (product_count <= 300 AND product_count >= 100) THEN 'many'
+		ELSE 'little'
+	END AS state
+FROM mobile_phones;
