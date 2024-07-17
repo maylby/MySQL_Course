@@ -42,3 +42,11 @@ VALUES("John"), ("Jane"), ("wary"), ("David"), ("2melia");
 INSERT INTO committees (name)
 VALUES ("John"), ("Mary"), ("Amelial"), ("Joe");
 SELECT * FROM members;
+
+
+/*
+Задание:
+Выведите участников, которые также являются членами комитета, 
+используйте INNER JOIN (пересечение 2 таблиц по имени);
+*/
+
