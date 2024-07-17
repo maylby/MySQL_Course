@@ -265,3 +265,37 @@ WHERE Manufacturer ='Samsung' OR NOT (Price > 30000 AND ProductCount > 2);
 9. ORDER BY
 10. LIMIT и OFFSET
 
+
+
+-- Оператор CASE, IF
+
+-- CASE
+/*
+Функция CASE проверяет истинность набора условий и в
+зависимости от результата проверки может возвращать тот или иной результат. 
+Эта функция принимает следующую форму:
+*/
+
+CASE
+	WHEN условие_1 THEN результат_1
+	WHEN условие_2 THEN результат_2
+	................................
+	WHEN условие_N THEN условие_N
+	[ELSE альтернативный_результат]
+END
+
+
+-- Выполним запрос к этой таблице Products, используя функцию CASE:
+
+SELECT ProductName, ProductCount,
+CASE
+	WHEN ProductCount = 1
+		THEN 'Товар заканчивается'
+	WHEN ProductCount = 2
+		THEN 'Мало товара'
+	WHEN ProductCount = 3
+		THEN 'Есть в наличии'
+	ELSE 'Много товара'
+END AS Category
+FROM Products;
+
