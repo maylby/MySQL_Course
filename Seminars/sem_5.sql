@@ -109,3 +109,13 @@ FROM sequence; -- из таблицы "sequence"
 -- 2  4
 -- 3  9
 -- 4  16
+
+WITH RECURSIVE cte_rec AS
+(
+	SELECT 1 AS n, 1 AS res
+    UNION ALL
+    SELECT n + 1 AS n, POW(n + 1, 2) AS res
+    FROM cte_rec
+    WHERE n + 1 <= 10
+)
+SELECT * FROM cte_rec;
