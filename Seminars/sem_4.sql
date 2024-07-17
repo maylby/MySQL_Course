@@ -127,3 +127,18 @@ RIGHT JOIN committees AS c
 WHERE
 	m.name IS NULL;
 
+
+
+-- CROSS JOIN
+-- Объединяет каждую строку первой таблицы со всеми строками второй
+
+SELECT select_list
+FROM table_1
+CROSS JOIN table_2;
+
+/*
+Задание:
+1. Найти членов комитета, которых нет в members с помощью RIGHT JOIN
+2. Выполнить RIGHT JOIN между 2 таблицами по полю “Имя”
+*/
+
