@@ -208,3 +208,18 @@ SELECT login FROM clients -- Количество столбцов в табли
               -- в других СУБД, это может вызвать ошибку
 ORDER BY login; -- сортировка всегда проводится в конце, чтобы отсортировать весь список
 
+
+-- FULL JOIN
+-- Объединяет информацию обеих таблиц
+
+SELECT *
+FROM members AS m
+LEFT JOIN committees AS c
+	ON m.name = c.name
+--
+UNION -- объединяет выводы левой и правой таблицы
+--
+SELECT *
+FROM members AS m
+RIGHT JOIN committees AS c
+	ON m.name = c.name;
