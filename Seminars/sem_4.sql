@@ -142,3 +142,7 @@ CROSS JOIN table_2;
 2. Выполнить RIGHT JOIN между 2 таблицами по полю “Имя”
 */
 
+SELECT *
+FROM members AS m
+CROSS JOIN committees AS c;
+
