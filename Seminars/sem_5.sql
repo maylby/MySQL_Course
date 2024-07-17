@@ -90,11 +90,11 @@ WITH RECURSIVE <cte_name> (<colums>) AS
 
 WITH RECURSIVE sequence (n) AS
 (
-  SELECT 0
-  UNION ALL
-  SELECT n + 1 
-  FROM sequence 
-  WHERE n + 1 <= 10
+  SELECT 0 -- первоначальное значение (выполняется 1 раз)
+  UNION ALL -- объединить всё
+  SELECT n + 1 -- добавлять единицу к значению
+  FROM sequence -- из таблицы "sequence"
+  WHERE n + 1 <= 10 -- пока значение не будет равно 10  
 )
-SELECT n
-FROM sequence;
+SELECT n -- вывести значение
+FROM sequence; -- из таблицы "sequence"
