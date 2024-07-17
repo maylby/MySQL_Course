@@ -230,3 +230,9 @@ CREATE TABLE tasks (
   INSERT INTO `tasks` (`id_tasks`, `event`, `date_event`) VALUES ('3', 'To_1_Line', '2020-04-02');
   INSERT INTO `tasks` (`id_tasks`, `event`, `date_event`) VALUES ('3', 'To_2_Line', '2020-04-03');
 
+
+SELECT 
+	*,
+    LEAD(event, 1, 'end') OVER(PARTITION BY id_tasks ORDER BY date_event) AS next_event,
+	LEAD(date_event, 1, '2099-01-01') OVER(PARTITION BY id_tasks ORDER BY date_event) AS next_date
+FROM tasks;
