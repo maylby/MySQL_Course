@@ -187,3 +187,8 @@ INSERT INTO clients (login, pass, male) VALUES ('Tom', '$2y$20$6SzbBCNRNklStIgTq
 INSERT INTO clients (login, pass, male) VALUES ('Masha', '$2y$20$6SzbBCNRNklStIgTqBKIluijJUnbeZ4wqIu4RJgkksnFZon5kH20y', 2);
 INSERT INTO clients (login, pass, male) VALUES ('alex', '$2y$10$6SzbBCMENklStIgTqBKIluijJUnbeZ5WqIu4RJgkksnFZon5kH14y', 1);
 
+/*
+Задание:
+1. Получить список пользователей и клиентов, удалив одинаковых клиентов и пользователей
+2. Получить список пользователей и клиентов. Дубликаты удалять не нужно
+*/
