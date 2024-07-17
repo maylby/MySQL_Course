@@ -179,3 +179,34 @@ INSERT INTO `bank_table` (`idbank_table`, `tb`, `dep`, `count_revisions`) VALUES
 INSERT INTO `bank_table` (`idbank_table`, `tb`, `dep`, `count_revisions`) VALUES ('17', 'F', 'Rozn', 111);
 INSERT INTO `bank_table` (`idbank_table`, `tb`, `dep`, `count_revisions`) VALUES ('18', 'F', 'IT', 33);
 
+
+/*
+Проранжируем таблицу по убыванию количества ревизий
+*/
+
+SELECT * FROM bank_table
+ORDER BY count_revisions DESC;
+
+SELECT 
+	*
+    ,ROW_NUMBER() OVER(ORDER BY count_revisions DESC) AS rn
+    ,RANK() OVER(ORDER BY count_revisions DESC) AS r
+    ,DENSE_RANK() OVER(ORDER BY count_revisions DESC) AS dr
+    ,NTILE(3) OVER(ORDER BY count_revisions DESC) AS n
+FROM bank_table;
+
+
+SELECT  MAX(count_revisions) ms
+FROM bank_table
+WHERE count_revisions != (SELECT MAX(count_revisions) FROM bank_table);
+
+WITH bank_num AS
+(
+	SELECT
+		*
+		,DENSE_RANK() OVER(ORDER BY count_revisions DESC) AS dr
+	FROM bank_table
+)
+SELECT * FROM bank_num
+WHERE dr = 9;
+
