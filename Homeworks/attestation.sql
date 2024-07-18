@@ -75,7 +75,7 @@ WHERE n MOD 2 = 0;
 -- v3
 DROP PROCEDURE even_num;
 
-DELIMITER $$ -- //
+DELIMITER $$
 CREATE PROCEDURE even_num(x INT)
 BEGIN
     DECLARE res VARCHAR(200) DEFAULT CAST(x AS char(200));
@@ -85,7 +85,7 @@ BEGIN
         UNTIL x <= 2
     END REPEAT;
     SELECT res;
-END $$ -- //
+END $$
 DELIMITER ;
 
 CALL even_num(10);
@@ -95,7 +95,7 @@ CALL even_num(10);
 /* Не разобрался с делением на 2 для вывода ряда чётных чисел */
 DROP function even_row;
 
-DELIMITER $$ -- //
+DELIMITER //
 CREATE FUNCTION even_row(num INT)
 RETURNS VARCHAR(100)
 DETERMINISTIC 
@@ -109,7 +109,7 @@ BEGIN
 			-- END IF;
 		END WHILE;
     RETURN res;
-END $$ -- //
+END //
 DELIMITER ;
 
 SELECT even_row(10) AS result;
