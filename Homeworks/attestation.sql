@@ -8,3 +8,32 @@ https://gb.ru/lessons/441880/homework
 Пример: 123456 ->'1 days 10 hours 17 minutes 36 seconds '
 */
 
+DROP function period;
+
+DELIMITER $$ -- //
+CREATE FUNCTION period(num INT)
+RETURNS VARCHAR(100)
+DETERMINISTIC 
+BEGIN
+	DECLARE days INT DEFAULT 0;
+    DECLARE hours INT DEFAULT 0;
+	DECLARE minutes INT DEFAULT 0;
+    DECLARE seconds INT DEFAULT 0;
+    DECLARE res VARCHAR(100) DEFAULT '';
+		SET seconds = num % 60;
+		SET num = num div 60;
+		SET minutes = num % 60;
+		SET num = num div 60;
+        SET hours = num % 24;
+		SET num = num div 24;
+        SET days = num % 24;
+		SET res = CONCAT(days,' days, ' 
+			,hours,' hours, ' 
+                        ,minutes,' minutes, ' 
+                        ,seconds,' seconds');
+    RETURN res;
+END $$ -- //
+DELIMITER ;
+
+SELECT period(123456) AS res;
+
