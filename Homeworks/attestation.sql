@@ -91,3 +91,27 @@ DELIMITER ;
 
 CALL even(10);
 
+
+-- v4
+/* Не разобрался с делением на 2 для вывода ряда чётных чисел */
+DROP function series;
+
+DELIMITER $$ -- //
+CREATE FUNCTION series(num INT)
+RETURNS VARCHAR(100)
+DETERMINISTIC 
+BEGIN
+    DECLARE n INT DEFAULT 0;
+    DECLARE res VARCHAR(100) DEFAULT '';
+		WHILE n < num DO
+			-- IF n = n % 2 != 0;
+				SET n = n + 1 / 2;
+				SET res = CONCAT(res, ' ', n);
+			-- END IF;
+		END WHILE;
+    RETURN res;
+END $$ -- //
+DELIMITER ;
+
+SELECT series(10) AS ser;
+
