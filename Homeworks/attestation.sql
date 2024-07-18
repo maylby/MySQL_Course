@@ -15,23 +15,23 @@ CREATE FUNCTION period(num INT)
 RETURNS VARCHAR(100)
 DETERMINISTIC 
 BEGIN
-	DECLARE days INT DEFAULT 0;
+    DECLARE days INT DEFAULT 0;
     DECLARE hours INT DEFAULT 0;
-	DECLARE minutes INT DEFAULT 0;
+    DECLARE minutes INT DEFAULT 0;
     DECLARE seconds INT DEFAULT 0;
     DECLARE res VARCHAR(100) DEFAULT '';
-		SET seconds = num MOD 60;
-		SET num = num DIV 60;
-		SET minutes = num MOD 60;
-		SET num = num DIV 60;
+        SET seconds = num MOD 60;
+        SET num = num DIV 60;
+        SET minutes = num MOD 60;
+        SET num = num DIV 60;
         SET hours = num MOD 24;
-		SET num = num DIV 24;
+        SET num = num DIV 24;
         SET days = num MOD 24;
-		SET res = CONCAT(
-            days,' days, '
-            , hours,' hours, '
-            , minutes,' minutes, '
-            , seconds,' seconds');
+        SET res = CONCAT(
+                    days,' days, '
+                    , hours,' hours, '
+                    , minutes,' minutes, '
+                    , seconds,' seconds');
     RETURN res;
 END $$ -- //
 DELIMITER ;
