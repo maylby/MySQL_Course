@@ -46,3 +46,15 @@ SELECT period(123456) AS res;
 Пример: 2,4,6,8,10
 */
 
+-- v1
+WITH RECURSIVE even_num (n) AS
+(
+	SELECT 2
+	UNION ALL
+	SELECT n + 2
+	FROM even_num
+	WHERE n + 2 <= 10
+)
+SELECT n
+FROM even_num;
+
