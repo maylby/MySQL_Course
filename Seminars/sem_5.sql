@@ -92,6 +92,8 @@ WITH RECURSIVE <cte_name> (<colums>) AS
 <main_query>
 
 
+-- Вывод последовательности чисел от 0 до 10, с помощью рекурсии
+
 WITH RECURSIVE sequence (n) AS
 (
   SELECT 0 -- первоначальное значение (выполняется 1 раз)
