@@ -58,3 +58,17 @@ WITH RECURSIVE even_num (n) AS
 SELECT n
 FROM even_num;
 
+
+-- v2.2
+WITH RECURSIVE counter AS
+(
+    SELECT 1 AS n
+    UNION ALL
+    SELECT n + 1 MOD 2 AS n
+    FROM counter
+    WHERE n + 1 <= 10
+)
+SELECT * 
+FROM counter 
+WHERE n MOD 2 = 0;
+
