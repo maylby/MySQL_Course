@@ -63,13 +63,17 @@ WITH count_status AS
 (
 	SELECT 
 		status,
-        COUNT(*) as cnt
-	FROM users
-    GROUP BY status
+        COUNT(*) as cnt -- количество в столбце "status" вывести в "cnt"
+	FROM users          -- из таблицы "users"
+    GROUP BY status     -- группировать "status"
 )
 SELECT * 
-FROM count_status
-WHERE status = 'active';
+FROM count_status -- из табличного выражения "count_status"
+WHERE LOWER(status) = 'active'; -- вывести, только 'active'; 
+				-- "LOWER" приводит запись к нижнему регистру для корректного сравнения
+				-- с эталоном из таблицы "users", где, в столбце "status", 
+				-- параметр "Active" записан с заглавной буквы
+				-- Сортировку можно было сделать внутри табличного выражения
 
 
 -- Рекурсивные СТЕ
