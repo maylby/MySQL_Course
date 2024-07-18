@@ -20,27 +20,23 @@ BEGIN
 	DECLARE minutes INT DEFAULT 0;
     DECLARE seconds INT DEFAULT 0;
     DECLARE res VARCHAR(100) DEFAULT '';
-		SET seconds = num % 60;
-		SET num = num div 60;
-		SET minutes = num % 60;
-		SET num = num div 60;
-        SET hours = num % 24;
-		SET num = num div 24;
-        SET days = num % 24;
-		SET res = CONCAT(days,' days, ' 
-			,hours,' hours, ' 
+		SET seconds = num MOD 60;
+		SET num = num DIV 60;
+		SET minutes = num MOD 60;
+		SET num = num DIV 60;
+        SET hours = num MOD 24;
+		SET num = num DIV 24;
+        SET days = num MOD 24;
+		SET res = CONCAT(
+                        days,' days, ' 
+			            ,hours,' hours, ' 
                         ,minutes,' minutes, ' 
-                        ,seconds,' seconds');
+                        ,seconds,' seconds'
+                        );
     RETURN res;
 END $$ -- //
 DELIMITER ;
 
 SELECT period(123456) AS res;
 
-
-
-/*
-2. Выведите только чётные числа от 1 до 10.
-Пример: 2,4,6,8,10
-*/
 
