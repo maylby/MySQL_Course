@@ -59,7 +59,7 @@ SELECT n
 FROM even_num;
 
 
--- v2.2
+-- v2
 WITH RECURSIVE counter AS
 (
     SELECT 1 AS n
@@ -71,4 +71,23 @@ WITH RECURSIVE counter AS
 SELECT * 
 FROM counter 
 WHERE n MOD 2 = 0;
+
+
+-- v3
+DROP PROCEDURE even;
+
+DELIMITER $$ -- //
+CREATE PROCEDURE even(x INT)
+BEGIN
+	DECLARE res VARCHAR(200) DEFAULT CAST(x AS char(200));
+    REPEAT
+		SET x = x - 2;
+        SET res = CONCAT(x, ', ', res);
+		UNTIL x <= 2
+	END REPEAT;
+    SELECT res;
+END $$ -- //
+DELIMITER ;
+
+CALL even(10);
 
