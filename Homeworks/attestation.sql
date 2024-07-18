@@ -28,11 +28,10 @@ BEGIN
 		SET num = num DIV 24;
         SET days = num MOD 24;
 		SET res = CONCAT(
-                        days,' days, ' 
-			            ,hours,' hours, ' 
-                        ,minutes,' minutes, ' 
-                        ,seconds,' seconds'
-                        );
+            days,' days, '
+            , hours,' hours, '
+            , minutes,' minutes, '
+            , seconds,' seconds');
     RETURN res;
 END $$ -- //
 DELIMITER ;
@@ -49,11 +48,11 @@ SELECT period(123456) AS res;
 -- v1
 WITH RECURSIVE even_num (n) AS
 (
-	SELECT 2
-	UNION ALL
-	SELECT n + 2
-	FROM even_num
-	WHERE n + 2 <= 10
+    SELECT 2
+    UNION ALL
+    SELECT n + 2
+    FROM even_num
+    WHERE n + 2 <= 10
 )
 SELECT n
 FROM even_num;
@@ -79,12 +78,12 @@ DROP PROCEDURE even;
 DELIMITER $$ -- //
 CREATE PROCEDURE even(x INT)
 BEGIN
-	DECLARE res VARCHAR(200) DEFAULT CAST(x AS char(200));
+    DECLARE res VARCHAR(200) DEFAULT CAST(x AS char(200));
     REPEAT
-		SET x = x - 2;
+        SET x = x - 2;
         SET res = CONCAT(x, ', ', res);
-		UNTIL x <= 2
-	END REPEAT;
+        UNTIL x <= 2
+    END REPEAT;
     SELECT res;
 END $$ -- //
 DELIMITER ;
@@ -113,5 +112,5 @@ BEGIN
 END $$ -- //
 DELIMITER ;
 
-SELECT series(10) AS ser;
+SELECT series(10) AS result;
 
