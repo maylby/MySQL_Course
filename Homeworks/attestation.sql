@@ -102,12 +102,12 @@ DETERMINISTIC
 BEGIN
     DECLARE n INT DEFAULT 0;
     DECLARE res VARCHAR(100) DEFAULT '';
-		WHILE n < num DO
-			-- IF n = n % 2 != 0;
-				SET n = n + 1 / 2;
-				SET res = CONCAT(res, ' ', n);
-			-- END IF;
-		END WHILE;
+        WHILE n < num DO
+            -- IF n = n % 2 != 0;
+                SET n = n + 1 / 2;
+                SET res = CONCAT(res, ' ', n);
+            -- END IF;
+        END WHILE;
     RETURN res;
 END //
 DELIMITER ;
