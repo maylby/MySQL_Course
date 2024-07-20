@@ -103,8 +103,8 @@ BEGIN
     DECLARE res VARCHAR(100) DEFAULT '';
         WHILE n < num DO
             SET n = n + 1 MOD 2;
-			SET n = n + 1;
-			SET res = CONCAT(res, ' ', n);
+            SET n = n + 1;
+            SET res = CONCAT(res, ' ', n);
         END WHILE;
     RETURN res;
 END //
