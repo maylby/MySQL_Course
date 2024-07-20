@@ -80,7 +80,8 @@ CREATE PROCEDURE even_num(x INT)
 BEGIN
     DECLARE res VARCHAR(200) DEFAULT CAST(x AS char(200));
     REPEAT
-        SET x = x - 2;
+        SET x = x - 1 MOD 2;
+        SET x = x - 1;
         SET res = CONCAT(x, ', ', res);
         UNTIL x <= 2
     END REPEAT;
