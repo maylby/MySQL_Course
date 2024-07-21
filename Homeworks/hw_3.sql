@@ -122,3 +122,31 @@ SELECT post, SUM(salary) AS summ
 FROM staff
 GROUP BY post;
 
+
+-- Задача 5
+/*
+Посчитайте и выведите количество сотрудников с должностью 'Рабочий' 
+и возрастом не моложе 24 лет и не старше 49 лет.
+*/
+-- Выводил "Рабочих" по лимиту. Как вывести по названию профессии?
+
+SELECT
+	firstname
+    , lastname
+	, post
+    , age 
+FROM staff
+GROUP BY firstname, lastname, post, age
+HAVING age > 24 AND age < 49
+LIMIT 3, 4;
+
+SELECT
+	firstname
+    , lastname
+	, post
+    , age
+FROM staff
+WHERE age > 24 AND age < 49
+GROUP BY firstname, lastname, post, age
+LIMIT 3, 4;
+
