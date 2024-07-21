@@ -110,3 +110,15 @@ FROM staff
 GROUP BY id, firstname, lastname
 LIMIT 5;
 
+
+-- Задача 4
+/*
+Посчитайте и выведите суммарную зарплату (salary) 
+по каждой специальности (post) из сущности staff.
+Порядок вывода атрибутов: должность, суммарная зарплата.
+*/
+
+SELECT post, SUM(salary) AS summ
+FROM staff
+GROUP BY post;
+
