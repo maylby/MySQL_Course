@@ -57,7 +57,7 @@ SELECT * FROM staff;
 */
 
 SELECT 
-	id
+    id
     , firstname
     , lastname
     , salary
@@ -72,7 +72,7 @@ ORDER BY salary;
 */
 
 SELECT 
-	id
+    id
     , firstname
     , lastname
     , salary
@@ -87,7 +87,7 @@ ORDER BY salary DESC;
 */
 
 SELECT 
-	id
+    id
     , firstname
     , lastname
     , salary
@@ -102,8 +102,8 @@ LIMIT 5;
 */
 
 SELECT 
-	id
-	, firstname
+    id
+    , firstname
     , lastname
     , MAX(salary)
 FROM staff
@@ -131,9 +131,9 @@ GROUP BY post;
 -- Выводил "Рабочих" по лимиту. Как вывести по названию профессии?
 
 SELECT
-	firstname
+    firstname
     , lastname
-	, post
+    , post
     , age 
 FROM staff
 GROUP BY firstname, lastname, post, age
@@ -141,9 +141,9 @@ HAVING age > 24 AND age < 49
 LIMIT 3, 4;
 
 SELECT
-	firstname
+    firstname
     , lastname
-	, post
+    , post
     , age
 FROM staff
 WHERE age > 24 AND age < 49
