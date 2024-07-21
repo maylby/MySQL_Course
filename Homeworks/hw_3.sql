@@ -79,3 +79,19 @@ SELECT
 FROM staff
 ORDER BY salary DESC;
 
+
+-- Задача 3
+/*
+Необходимо вывести идентификатор, имя, фамилию, заработную плату 
+пяти самых высокооплачиваемых сотрудников из сущности staff.
+*/
+
+SELECT 
+	id
+    , firstname
+    , lastname
+    , salary
+FROM staff
+ORDER BY salary
+LIMIT 5;
+
