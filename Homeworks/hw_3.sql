@@ -49,3 +49,18 @@ VALUES
 
 SELECT * FROM staff;
 
+
+-- Задача 1
+/*
+Вывести идентификатор (id), имя, фамилию, заработную плату (salary) из сущности staff, 
+данные отсортировать в порядке возрастания заработной платы.
+*/
+
+SELECT 
+	id
+    , firstname
+    , lastname
+    , salary
+FROM staff
+ORDER BY salary;
+
