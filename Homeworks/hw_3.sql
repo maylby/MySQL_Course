@@ -150,3 +150,13 @@ WHERE age > 24 AND age < 49
 GROUP BY firstname, lastname, post, age
 LIMIT 3, 4;
 
+
+-- Задача 6
+/*
+Посчитайте и выведите количество уникальных должностей, 
+имеющихся у сотрудников в сущности 'staff'.
+*/
+
+SELECT COUNT(DISTINCT post) AS post_count
+FROM staff;
+
