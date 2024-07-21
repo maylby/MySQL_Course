@@ -160,3 +160,14 @@ LIMIT 3, 4;
 SELECT COUNT(DISTINCT post) AS post_count
 FROM staff;
 
+
+-- Задача 7
+/*
+Найдите средний возраст сотрудников по каждой должности из сущности staff.
+Выведите только те должности, у которых средний возраст меньше 30 лет.
+*/
+
+SELECT DISTINCT post, ROUND(AVG(age)) AS avg
+FROM staff
+GROUP BY post, age
+HAVING age < 30;
