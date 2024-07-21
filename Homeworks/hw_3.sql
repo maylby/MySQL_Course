@@ -95,3 +95,18 @@ FROM staff
 ORDER BY salary
 LIMIT 5;
 
+
+/* 
+Вывести id, фамилии, имена 5-ти первых сотрудников, 
+отсортированых в порядке убывания заработной платы
+*/
+
+SELECT 
+	id
+	, firstname
+    , lastname
+    , MAX(salary)
+FROM staff
+GROUP BY id, firstname, lastname
+LIMIT 5;
+
